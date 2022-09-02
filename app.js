@@ -120,15 +120,13 @@ app.get('/menu/:id',(req,res) => {
     })
 })
 
+
 app.post('/menuItem',(req,res) => {
-    if(Array.isArray(req.body.id)){
-        db.collection('menu').find({menu_id:{$in:req.body.id}}).toArray((err,result) => {
-            if(err) throw err;
-            res.send(result)
-        })
-    }else{
-        res.send('Invalid Input')
-    }
+    console.log(req.body)
+    db.collection('menu').find({menu_id:{$in:req.body.ids}}).toArray((err,result)=>{
+        if(err) throw err;
+        res.send(result)
+    })
 })
 
 app.post('/placeOrder',(req,res) => {
