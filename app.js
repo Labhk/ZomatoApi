@@ -148,7 +148,7 @@ app.get('/orders',(req,res) => {
     })
 })
 
-app.put('/updateOrder/:id',(req,res) => {
+app.put('/update/:id',(req,res) => {
     let oid = Number(req.params.id);
     db.collection('orders').updateOne(
         {id:oid},
