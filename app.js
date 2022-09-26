@@ -151,7 +151,7 @@ app.get('/orders',(req,res) => {
 app.patch('/update/:id',(req,res) => {
     let oid = Number(req.params.id);
     db.collection('orders').updateOne(
-        {id:oid},
+        {order_id:oid},
         {
             $set:{
                 "status":req.body.status,
